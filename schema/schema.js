@@ -7,12 +7,12 @@ const prisma = new PrismaClient();
 const typeDefs = `
   type Echange {
     id_echange: Int
-    nom: String
-    contact: String
-    nom_kilalao: String
-    photos: String
-    atakalo: String
-    statut: Boolean
+    nom: String!
+    contact: String!
+    nom_kilalao: String!
+    photos: String!
+    atakalo: String!
+    statut: Boolean!
   }
 
  
