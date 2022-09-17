@@ -19,6 +19,17 @@ const typeDefs = `
   type Query {
     echanges: [Echange!]!
   }
+
+  type Mutation {
+    addEchange(
+      nom: String
+      contact: String
+      nom_kilalao: String
+      photos: String
+      atakalo: String
+    ): Echange
+    desactivateEchange(id_echange: Int, statut: Boolean): Echange
+  }
  
 
 `;
@@ -26,7 +37,28 @@ const typeDefs = `
 const resolvers = {
   Query: {
     echanges: (_parent, _args, _context) => {
-      return prisma.echange.findMany();
+      return prisma.echange.findMany({
+        where: {
+          statut: true,
+        },
+      });
+    },
+  },
+
+  Mutation: {
+    addEchange: (_parent, _args, _context) => {
+      return prisma.echange.create({
+        data: _args,
+      });
+    },
+    desactivateEchange: (_parent, { id_echange }, _context) => {
+      let etat = false;
+      return prisma.echange.update({
+        where: { id_echange },
+        data: {
+          statut: etat,
+        },
+      });
     },
   },
 };
