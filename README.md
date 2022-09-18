@@ -64,7 +64,7 @@ query{
 
 ### Response
 
-Depending on the parameters you send, the API returns the desired responses. It show only the actives exchanges.
+Depending on the parameters you send, the API returns the desired responses. It shows only the actives exchanges.
 Example of an response:
 
 ```json
@@ -82,3 +82,17 @@ Example of an response:
   }
 }
 ```
+
+### Desactivate an exchange
+
+To desactivate an exchange, pass the ID of the exchange you want to desactivate as follows:
+
+```sh
+mutation{
+  desactivateEchange(id_echange:n){
+    id_echange
+  }
+}
+```
+
+Replace the `n` to the ID you want to pass.
