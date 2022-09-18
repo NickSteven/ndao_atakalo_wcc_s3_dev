@@ -1,4 +1,4 @@
-# ndao_atakalo_wcc_s3_dev-
+# Ndao_atakalo_wcc_s3_dev-
 
 Ndao atakalo api with graphql
 
@@ -47,7 +47,7 @@ mutation {
 
 ### Querying
 
-You can pass meny parameters as you want to pass, there are the available parameters:
+You can pass many parameters as you want to pass, there are the available parameters:
 
 ```sh
 query{
@@ -58,6 +58,27 @@ query{
     nom_kilalao,
     atakalo,
     photos
+  }
+}
+```
+
+### Response
+
+Depending on the parameters you send, the API returns the desired responses. It show only the actives exchanges.
+Example of an response:
+
+```json
+{
+  "data": {
+    "echanges": [
+      {
+        "nom": "Koto",
+        "contact": "03500000000",
+        "nom_kilalao": "papango",
+        "atakalo": "kalesy",
+        "photos": "urlphoto"
+      }
+    ]
   }
 }
 ```
