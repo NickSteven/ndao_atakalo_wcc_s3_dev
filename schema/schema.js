@@ -1,6 +1,4 @@
 const { makeExecutableSchema } = require("@graphql-tools/schema");
-//const { GraphQLUpload, gql } = require("apollo-server-express");
-
 const pkg = require("@prisma/client");
 const { PrismaClient } = pkg;
 const prisma = new PrismaClient();
