@@ -22,9 +22,9 @@ Run this command:
 
 ### `nodemon app.js`
 
-### Usage
+# Usage
 
-# Adding new exchange
+### Adding new exchange
 
 Example of creating an new exchange:
 
@@ -45,7 +45,7 @@ mutation {
 }
 ```
 
-# Querying
+### Querying
 
 You can pass meny parameters as you want to pass, there are the available parameters:
 
