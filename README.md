@@ -26,8 +26,9 @@ Run this command:
 
 # Adding new exchange
 
-````sh Example of creating an new exchange:
-mutation{
+Example of creating an new exchange:
+
+````sh mutation{
 addEchange(nom:"add"­, contact:"0346655203"­, nom_kilalao:"kilalao­", atakalo:"bobotakely"­, photos:"urlphoto")
 {
 nom,
