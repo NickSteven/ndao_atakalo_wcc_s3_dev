@@ -28,18 +28,19 @@ Run this command:
 
 Example of creating an new exchange:
 
-```sh mutation {
-addEchange(nom:"add"­,
-contact:"0346655203"­,
-nom_kilalao:"kilalao­",
-atakalo:"bobotakely"­,
-photos:"urlphoto")
-{
-nom,
-contact,
-nom_kilalao,
-atakalo,
-photos
-}
+```sh
+mutation {
+    addEchange(nom:"Koto"­,
+    contact:"03500000000"­,
+    nom_kilalao:"papango",
+    atakalo:"kalesy"­,
+    photos:"urlphoto")
+    {
+        nom,
+        contact,
+        nom_kilalao,
+        atakalo,
+        photos
+    }
 }
 ```
