@@ -22,7 +22,7 @@ Run this command:
 
 ### `nodemon app.js`
 
-### Querying
+### Usage
 
 # Adding new exchange
 
@@ -42,5 +42,22 @@ mutation {
         atakalo,
         photos
     }
+}
+```
+
+# Querying
+
+You can pass meny parameters as you want to pass, there are the available parameters:
+
+```sh
+query{
+  echanges{
+    nom,
+    nom,
+    contact,
+    nom_kilalao,
+    atakalo,
+    photos
+  }
 }
 ```
