@@ -3,11 +3,13 @@ const createError = require("http-errors");
 const morgan = require("morgan");
 require("dotenv").config();
 const echangeSchema = require("./schema/schema");
+const bodyParser = require("body-parser");
 
 const graphqlHTTP = require("express-graphql").graphqlHTTP;
 
 const app = express();
-// app.use(express.json());
+app.use(bodyParser.json());
+//app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(morgan("dev"));
 
@@ -35,5 +37,5 @@ app.use(
 //   });
 // });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`🚀 @ http://localhost:${PORT}`));

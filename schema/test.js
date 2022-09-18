@@ -1,11 +1,13 @@
 const { makeExecutableSchema } = require("@graphql-tools/schema");
-//const { GraphQLUpload, gql } = require("apollo-server-express");
+const { GraphQLUpload, gql } = require("apollo-server-express");
+const path = require("path");
+const fs = require("fs");
 
 const pkg = require("@prisma/client");
 const { PrismaClient } = pkg;
 const prisma = new PrismaClient();
 
-const typeDefs = `
+const typeDefs = gql`
   type Echange {
     id_echange: Int
     nom: String!
@@ -30,6 +32,16 @@ const typeDefs = `
     ): Echange
     desactivateEchange(id_echange: Int, statut: Boolean): Echange
   }
+
+  scalar FileUpload
+
+  type FieldUpload {
+    url: String!
+  }
+
+  type Mutation {
+    addphoto(file: FileUpload!): FieldUpload!
+  }
 `;
 
 const resolvers = {
@@ -43,8 +55,21 @@ const resolvers = {
     },
   },
 
+  FileUpload: { GraphQLUpload },
+
   Mutation: {
-    addEchange: (
+    addphoto: async (parent, { file }) => {
+      const { createReadStream, filename, mimetype } = await file;
+      const location = path.join(__dirname, `./uploads/${filename}`);
+      const myfile = createReadStream();
+
+      await myfile.pipe(fs.createWriteStream(location));
+      return {
+        url: `http://localhost:4000/images/${filename}`,
+      };
+    },
+
+    addEchange: async (
       _parent,
       { nom, contact, nom_kilalao, atakalo, photos },
       _context
@@ -73,7 +98,6 @@ const resolvers = {
         throw Error("les champs ne doivent pas être vide");
       }
     },
-
     desactivateEchange: (_parent, { id_echange }, _context) => {
       let etat = false;
       return prisma.echange.update({
