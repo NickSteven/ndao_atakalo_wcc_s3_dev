@@ -73,7 +73,7 @@ Example of an response:
     "echanges": [
       {
         "nom": "Koto",
-        "contact": "03500000000",
+        "contact": "0350000000", // Must be a length of ten
         "nom_kilalao": "papango",
         "atakalo": "kalesy",
         "photos": "urlphoto"
